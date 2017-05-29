@@ -41,7 +41,10 @@ class face_classify:
             Load the image and return c0lor value
         """
         img_data = cv2.imread(img_name, 0)
-        return img_data
+        if img_data is None:
+            return None
+        else:
+            return img_data
 
     def classify(self, img_data):
         """
