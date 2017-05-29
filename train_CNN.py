@@ -12,7 +12,7 @@ def train(obj_name, img_size, para_rate):
     """
 
     """ ---------- load the training data from training images ------------------ """
-    print "Loading training data ..."
+    print("Loading training data ...")
 
     train_x = []
     train_y = []
@@ -50,7 +50,7 @@ def train(obj_name, img_size, para_rate):
     saver = tf.train.Saver()                                                    # session saver define
 
     """ ------------------------------ training data ---------------------------- """
-    print "Training data ..."
+    print("Training data ...")
 
     for step_i in range(3000):
         # train the CNN model and return cost value
@@ -60,12 +60,12 @@ def train(obj_name, img_size, para_rate):
         if step_i % 10 == 0:
             pred_y = sess.run(predict_op, feed_dict={X: train_x, p_keep_con: 1, p_keep_hidden: 1})
             acc = np.mean(np.argmax(train_y, axis=1) == pred_y)
-            print "  step:", step_i, " cost:", ret[1], " accuracy:", acc * 100
+            print("  step:", step_i, " cost:", ret[1], " accuracy:", acc * 100)
             saver.save(sess, 'model/model_CNN_' + obj_name)     # save CNN model weight
         else:
-            print "  step:", step_i, " cost:", ret[1]
+            print("  step:", step_i, " cost:", ret[1])
 
-    print ("Optimization Finished!")
+    print("Optimization Finished!")
 
 if __name__ == '__main__':
     train('mouth', 30, 0.0001)

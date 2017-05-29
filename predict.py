@@ -61,8 +61,8 @@ if __name__ == "__main__":
 
     mouth_img = mouth_class.load_image('Pictures/mouth/1/mouth_7.bmp')  # classify the mouth using image
     result = mouth_class.classify(mouth_img)
-    print 'mouth', result
+    print('mouth', result)
 
     eye_img = eye_class.load_image('Pictures/eyes/0/eye1_51.bmp')       # classify the eye using image
     result = eye_class.classify(eye_img)
-    print 'eye', result
+    print('eye', result)
